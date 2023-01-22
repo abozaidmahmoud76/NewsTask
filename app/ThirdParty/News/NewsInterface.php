@@ -8,5 +8,5 @@ namespace App\ThirdParty\News;
 
 interface NewsInterface
 {
-    public function list($q);
+    public function search($q);
 }

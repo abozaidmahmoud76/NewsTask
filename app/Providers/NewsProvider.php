@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\ThirdParty\News\NewsApi\NewsApiAdapter;
+use App\ThirdParty\News\adapters\NewsApiAdapter;
 use App\ThirdParty\News\NewsInterface;
 use Illuminate\Support\ServiceProvider;
 
@@ -16,6 +16,8 @@ class NewsProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(NewsInterface::class, NewsApiAdapter::class);
+//        $this->app->bind(NewsInterface::class, NewsSourceTwoAdapter::class);
+
     }
 
     /**

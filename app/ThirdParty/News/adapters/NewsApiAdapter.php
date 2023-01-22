@@ -1,8 +1,9 @@
 <?php
 
-namespace App\ThirdParty\News\NewsApi;
+namespace App\ThirdParty\News\adapters;
 
 
+use App\ThirdParty\News\NewsApi\NewsApi;
 use App\ThirdParty\News\NewsInterface;
 
 class NewsApiAdapter implements NewsInterface
@@ -20,8 +21,13 @@ class NewsApiAdapter implements NewsInterface
      * return list of news
      * @return mixed
      */
-    public function list($q): mixed
+    public function search($q): mixed
     {
-       return $this->newsApi->list($q);
+       return $this->newsApi->search($q);
     }
+    public function get()
+    {
+        return $this->get();
+    }
+
 }

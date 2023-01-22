@@ -12,9 +12,14 @@ class News
         $this->news = $news;
     }
 
-    public function list($q)
+    public function search($q)
     {
-        return $this->news->list($q);
+        return $this->news->search($q);
+    }
+
+    public function get()
+    {
+        return $this->news->get();
     }
 
 }

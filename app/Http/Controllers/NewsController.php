@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ListNewsRequest;
-use App\Http\Resources\NewsResource;
+use App\Services\GetNews;
 use App\ThirdParty\News\News;
 use Illuminate\Http\JsonResponse;
 
@@ -18,8 +18,11 @@ class NewsController extends Controller
 
     public function list(ListNewsRequest $request):JsonResponse
     {
-        $news = $this->news->list($request->q);
-        return response()->json(['status' => true, 'news' => NewsResource::collection($news['articles'])]);
+        GetNews::list();
+
+
+        $news = $this->news->search($request->q)->get();
+        return response()->json(['status' => true, 'news' => $news]);
     }
 
 }
